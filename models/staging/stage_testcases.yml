@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_customers
+    columns:
+      - name: customerid
+        description: Customer details for each customer
+        tests:
+          - unique
+          - not_null
+  - name: stg_orderdetails
+    description: order details info for each orders
+    columns:
+      - name: orderid
+        tests:
+          - relationships:
+              field: orderid
+              to: ref('stg_orders')
+  - name: stg_shipments
+    description: Shipments info details for all shippers and orders
+    columns:
+      - name: status
+        tests:
+          - accepted_values:
+              values: ["shipped", "returned", "ordered", "replaced"]
+#  - name: stg_employees
+#    description: Employees infor master data and transactional data
+#    columns:
+#      - name: empid
+#        tests:
+#          - is_even
