@@ -1,3 +1,4 @@
+
 {{config(materialized='view',schema='reporting')}}
 
 

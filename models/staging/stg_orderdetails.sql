@@ -1,4 +1,7 @@
-{{ config(materialized = 'incremental', unique_key= ['orderid', 'lineno']) }}
+{{ config(materialized = 'incremental', 
+        unique_key= ['orderid', 'lineno'],
+        schema=env_var('DBT_STAGESCHEMA', 'staging')) 
+}}
  
 select
  
