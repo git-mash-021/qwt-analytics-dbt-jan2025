@@ -1,3 +1,4 @@
+
 {{config(materialized='view', schema='salesmart')}}
 
 {% set min_order_date=get_min_orderdate() %}

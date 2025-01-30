@@ -1,4 +1,5 @@
-{{config(materialized='table',schema="{{env_var('DBT_STAGINGSCHEMA','staging)}}")}}
+{{config(materialized='table', schema=env_var('DBT_STAGESCHEMA', 'staging'))}}
+
 
 select *
  from

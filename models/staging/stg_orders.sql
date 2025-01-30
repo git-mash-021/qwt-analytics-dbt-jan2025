@@ -1,5 +1,6 @@
-{{ config(materialized = 'incremental', unique_key='orderid') }}
+{{ config(materialized = 'incremental',schema=env_var('DBT_STAGESCHEMA', 'staging'), unique_key='orderid') }}
  
+
 select * from
 {{source('qwt_raw','raw_orders')}}
  

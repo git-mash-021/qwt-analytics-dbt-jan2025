@@ -1,5 +1,5 @@
-{{config(materialized='table',schema="{{env_var('DBT_STAGINGSCHEMA','staging)}}")}}
+{{config(materialized='table',schema=env_var('DBT_STAGESCHEMA', 'staging'))}}
 
 select  *
  from
-{{source("qwt_raw","raw_contacts")}} 
+{{source("qwt_raw","raw_contacts")}}
