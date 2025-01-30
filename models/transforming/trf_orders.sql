@@ -1,4 +1,4 @@
-{{config(materialized='table',schema='transforming')}}
+{{config(materialized='table',schema=env_var('DBT_TRANSFORMSCHEMA', 'transforming'))}}
 
  select o.orderid,
         od.lineno,
